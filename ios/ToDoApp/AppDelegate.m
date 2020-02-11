@@ -14,6 +14,8 @@
 #import <UMReactNativeAdapter/UMNativeModulesProxy.h>
 #import <UMReactNativeAdapter/UMModuleRegistryAdapter.h>
 
+#import "RNSplashScreen.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -32,7 +34,9 @@
   [self.window makeKeyAndVisible];
 
   [super application:application didFinishLaunchingWithOptions:launchOptions];
-
+  
+  
+  [RNSplashScreen show];
   return YES;
 }
 
