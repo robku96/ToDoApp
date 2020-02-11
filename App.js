@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { 
+  Platform, 
+  StyleSheet, 
+  StatusBar,
+  Text, 
+  View 
+} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
+import moment from 'moment';
+import { Bind } from 'lodash-decorators';
+
+import Calendar from './js/common/components/calendar/calendar/calendar';
+
+import Colors from './js/common/colors/colors';
 
 export default class App extends Component {
   componentDidMount() {
     SplashScreen.hide();
   }
 
+  @Bind()
+  onSelectDate() {
+    alert(date.calendar());
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
+        <StatusBar backgroundColor={Colors.darkBlue} />
+        <Calendar onSelectDate={this.onSelectDate} />
       </View>
     );
   }
@@ -20,19 +37,8 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#3C69FF',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#3C69FF',
-    marginBottom: 5,
+    backgroundColor: Colors.darkBlue,
+    color: Colors.white,
+    paddingTop: 20,
   },
 });
