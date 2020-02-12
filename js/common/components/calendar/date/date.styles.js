@@ -4,7 +4,7 @@ import Colors from '../../../colors/colors';
 export default StyleSheet.create({
   container: {
     borderBottomColor: 'transparent',
-    borderBottomWidth: 2,
+    borderBottomWidth: 3,
     paddingHorizontal: 15,
     paddingVertical: 10,
   },
@@ -15,10 +15,10 @@ export default StyleSheet.create({
     fontSize: 12,
   },
   date: {
-    fontSize: 22,
+    fontSize: 18,
   },
   text: {
-    color: 'rgba(255, 255, 255, 0.5)',
+    color: Colors.white,
     textAlign: 'center',
   },
   textActive: {

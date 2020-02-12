@@ -7,8 +7,11 @@ import {
   View 
 } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
+import BottomBar from 'react-native-bottom-bar';
 import moment from 'moment';
 import { Bind } from 'lodash-decorators';
+
+import { AntDesign } from '@expo/vector-icons';
 
 import Calendar from './js/common/components/calendar/calendar/calendar';
 
@@ -20,7 +23,7 @@ export default class App extends Component {
   }
 
   @Bind()
-  onSelectDate() {
+  onSelectDate(date) {
     alert(date.calendar());
   };
 
@@ -28,7 +31,21 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor={Colors.darkBlue} />
-        <Calendar onSelectDate={this.onSelectDate} />
+        <Calendar 
+          showDaysAfterCurrent={300}
+          onSelectDate={this.onSelectDate} 
+        />
+        <BottomBar
+          shapeColor={Colors.bottomBarGrey}
+          shapeStyle={{
+            bottom: 90
+          }}
+          firstIconComponent={<AntDesign name="checkcircleo" size={24} color={Colors.darkGrey} />}
+          secondIconComponent={<AntDesign name="calendar" size={24} color={Colors.darkGrey} />}
+          mainIconComponent={<AntDesign name="pluscircle" size={40} color={Colors.darkBlue} />}
+          thirdIconComponent={<AntDesign name="setting" size={24} color={Colors.darkGrey} />}
+          fourthIconComponent	={<AntDesign name="logout" size={24} color={Colors.darkGrey} />}
+        />
       </View>
     );
   }
@@ -37,8 +54,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.darkBlue,
     color: Colors.white,
-    paddingTop: 20,
+    backgroundColor: Colors.lightGrey
   },
 });

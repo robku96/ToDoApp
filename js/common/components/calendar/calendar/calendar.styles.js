@@ -1,9 +1,13 @@
 import { StyleSheet } from 'react-native';
+import Colors from '../../../colors/colors';
+import Text from '../../../styles/text';
 
 export default StyleSheet.create({
   visibleMonthAndYear: {
-    color: 'rgba(255, 255, 255, 0.5)',
+    ...Text.HeadingMain,
+    color: Colors.white,
+    backgroundColor: Colors.darkBlue,
     paddingHorizontal: 15,
-    textAlign: 'left',
+    textAlign: 'center',
   },
 });

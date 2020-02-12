@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+import { noop } from 'lodash';
 import { Bind } from 'lodash-decorators';
 
 import styles from './date.styles';
@@ -28,8 +29,20 @@ export default class Date extends PureComponent {
     onRender: noop,
   };
 
-  // Style helper functions that merge active date styles with the default ones
-  // when rendering a date that was selected by user or was set active by default
+	// Call `onRender` and pass component's with when rendered
+	@Bind()
+  onLayout(event) {
+    const { index, onRender } = this.props;
+    const { nativeEvent: { layout: { width } } } = event;
+    onRender(index, width);
+  };
+
+	// Call `onPress` passed from the parent component when date is pressed
+	@Bind()
+  onPress() {
+    const { index, onPress } = this.props;
+    onPress(index);
+  };
 
   getContainerStyle = () => ({
     ...styles.container,
@@ -48,23 +61,9 @@ export default class Date extends PureComponent {
     ...(this.props.isActive ? styles.textActive : {})
   });
 
-	// Call `onRender` and pass component's with when rendered
-	@Bind()
-  onLayout(event) {
-    const { index, onRender } = this.props;
-    const { nativeEvent: { layout: { width } } } = event;
-    onRender(index, width);
-  };
-
-	// Call `onPress` passed from the parent component when date is pressed
-	@Bind()
-  onPress() {
-    const { index, onPress } = this.props;
-    onPress(index);
-  };
-
   render() {
-    const { date } = this.props;
+    const { date }  = this.props;
+
     return (
       <TouchableOpacity
         style={this.getContainerStyle()}
