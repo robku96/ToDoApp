@@ -36,8 +36,8 @@ export default class Calendar extends PureComponent {
   }
 
   static defaultProps = {
-    showDaysBeforeCurrent: 5,
-    showDaysAfterCurrent: 5,
+    showDaysBeforeCurrent: 14,
+    showDaysAfterCurrent: 14,
   };
 
   constructor(props) {

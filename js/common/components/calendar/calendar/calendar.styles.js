@@ -5,9 +5,10 @@ import Text from '../../../styles/text';
 export default StyleSheet.create({
   visibleMonthAndYear: {
     ...Text.HeadingMain,
+    fontWeight: 'bold',
     color: Colors.white,
     backgroundColor: Colors.darkBlue,
-    paddingHorizontal: 15,
+    paddingHorizontal: 16,
     textAlign: 'center',
   },
 });

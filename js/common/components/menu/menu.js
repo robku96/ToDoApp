@@ -1,38 +1,105 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { Bind } from 'lodash-decorators';
 
-import Touchable from '../touchable/touchable';
+import BottomBar from 'react-native-bottom-bar';
 import { AntDesign } from '@expo/vector-icons';
-import Colors from './js/common/colors/colors';
 
-import styles from './menu.styles';
-
-export default class Menu extends PureComponent {
+import Touchable from '../touchable/touchable';
+import Colors from '../../colors/colors';
+import { 
+  METRIC_X_SMALL, 
+  METRIC_BASE, 
+  METRIC_MED 
+} from '../../consts/variables';
+export default class Menu extends Component {
 
   @Bind()
-  menuButton(icon) {
+  tasksButton() {
     return(
-      <Touchable onPress={onPress}>
+      <Touchable 
+        onPress={() => this.props.navigation.navigate('Tasks')}
+      >
+        <AntDesign 
+          name="checkcircleo" 
+          size={METRIC_BASE} 
+          color={Colors.darkGrey} 
+        />
+      </Touchable>
+    )
+  }
 
+  @Bind()
+  calendarButton() {
+    return(
+      <Touchable 
+        onPress={() => this.props.navigation.navigate('Calendar')}
+      >
+        <AntDesign 
+          name="calendar" 
+          size={METRIC_BASE} 
+          color={Colors.darkGrey} 
+        />
+      </Touchable>
+    )
+  }
+
+  @Bind()
+  addButton() {
+    return(
+      <Touchable 
+        onPress={() => this.props.navigation.navigate('AddTask')}
+      >
+        <AntDesign 
+          name="pluscircle" 
+          size={METRIC_MED - METRIC_X_SMALL} 
+          color={Colors.darkBlue} 
+        />
+      </Touchable>
+    )
+  }
+
+  @Bind()
+  settingsButton() {
+    return(
+      <Touchable 
+        onPress={() => this.props.navigation.navigate('Settings')}
+      >
+        <AntDesign 
+          name="setting" 
+          size={METRIC_BASE} 
+          color={Colors.darkGrey} 
+        />
+      </Touchable>
+    )
+  }
+
+  @Bind()
+  signOutButton() {
+    return(
+      <Touchable 
+        onPress={() => this.props.navigation.navigate('SignIn')}
+      >
+        <AntDesign 
+          name="logout" 
+          size={METRIC_BASE} 
+          color={Colors.darkGrey} 
+        />
       </Touchable>
     )
   }
 
   render() {
-
     return (
       <BottomBar
         shapeColor={Colors.bottomBarGrey}
-        shapeStyle={{
-          bottom: 90
-        }}
-        firstIconComponent={<AntDesign name="checkcircleo" size={24} color={Colors.darkGrey} />}
-        secondIconComponent={<AntDesign name="calendar" size={24} color={Colors.darkGrey} />}
-        mainIconComponent={<AntDesign name="pluscircle" size={40} color={Colors.darkBlue} />}
-        thirdIconComponent={<AntDesign name="setting" size={24} color={Colors.darkGrey} />}
-        fourthIconComponent	={<AntDesign name="logout" size={24} color={Colors.darkGrey} />}
+        shapeStyle={{ bottom: 90 }}
+        firstIconComponent={this.tasksButton()}
+        secondIconComponent={this.calendarButton()}
+        mainIconComponent={this.addButton()}
+        thirdIconComponent={this.settingsButton()}
+        fourthIconComponent	={this.signOutButton()}
       />
     );
   }

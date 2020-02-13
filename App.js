@@ -1,60 +1,134 @@
 import React, { Component } from 'react';
-import { 
-  Platform, 
-  StyleSheet, 
-  StatusBar,
-  Text, 
-  View 
-} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
-import BottomBar from 'react-native-bottom-bar';
-import moment from 'moment';
 import { Bind } from 'lodash-decorators';
 
-import { AntDesign } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import Calendar from './js/common/components/calendar/calendar/calendar';
+// App views
+import SignInView from './js/views/signIn/signIn.view';
+import SignUpView from './js/views/signUp/signUp.view';
+import TasksView from './js/views/tasks/tasks.view';
+import AddTaskView from './js/views/add/addTask.view';
+import SettingsView from './js/views/settings/settings.view';
+import CalendarView from './js/views/calendar/calendar.view';
+
+import Menu from './js/common/components/menu/menu';
+
+import { TransitionSpecs, HeaderStyleInterpolators } from '@react-navigation/stack';
 
 import Colors from './js/common/colors/colors';
 
+const Stack = createStackNavigator();
 export default class App extends Component {
+
   componentDidMount() {
     SplashScreen.hide();
   }
 
-  @Bind()
-  onSelectDate(date) {
-    alert(date.calendar());
-  };
-
   render() {
+    const customHeaderOptions = {
+      headerTitleAlign: "center",
+      headerTintColor: Colors.white,
+      headerStyle: {
+        backgroundColor: Colors.darkBlue
+      },
+      headerTitleStyle: {
+        color: Colors.white,
+        fontWeight: 'bold'
+      },
+    };
+
+    const myTransition = {
+      gestureDirection: 'horizontal',
+      transitionSpec: {
+        open: TransitionSpecs.TransitionIOSSpec,
+        close: TransitionSpecs.TransitionIOSSpec,
+      },
+      headerStyleInterpolator: HeaderStyleInterpolators.forFade,
+    };
+
     return (
-      <View style={styles.container}>
-        <StatusBar backgroundColor={Colors.darkBlue} />
-        <Calendar 
-          showDaysAfterCurrent={300}
-          onSelectDate={this.onSelectDate} 
-        />
-        <BottomBar
-          shapeColor={Colors.bottomBarGrey}
-          shapeStyle={{
-            bottom: 90
-          }}
-          firstIconComponent={<AntDesign name="checkcircleo" size={24} color={Colors.darkGrey} />}
-          secondIconComponent={<AntDesign name="calendar" size={24} color={Colors.darkGrey} />}
-          mainIconComponent={<AntDesign name="pluscircle" size={40} color={Colors.darkBlue} />}
-          thirdIconComponent={<AntDesign name="setting" size={24} color={Colors.darkGrey} />}
-          fourthIconComponent	={<AntDesign name="logout" size={24} color={Colors.darkGrey} />}
-        />
+      <View style={{flex: 1}}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Calendar">
+            <Stack.Screen 
+              name="SignIn" 
+              component={SignInView} 
+              options={{headerShown: false}}
+            />
+            <Stack.Screen 
+              name="SignUp" 
+              component={SignUpView} 
+              options={{headerShown: false}}
+            />
+            <Stack.Screen 
+              name="Tasks" 
+              component={TasksView} 
+              options={{
+                title: "All your tasks",
+                headerTitleAlign: "center",
+                headerStyle: {
+                  backgroundColor: Colors.darkBlue
+                },
+                headerTitleStyle: {
+                  color: Colors.white,
+                  fontWeight: 'bold'
+                },
+                headerTintColor: Colors.white,
+                ...myTransition
+              }}
+            />
+            <Stack.Screen 
+              name="Calendar" 
+              component={CalendarView} 
+              options={{
+                headerShown: false,
+                ...myTransition
+              }}
+            />
+            <Stack.Screen 
+              name="AddTask" 
+              component={AddTaskView} 
+              options={{
+                title: "Add new task",
+                headerTitleAlign: "center",
+                headerStyle: {
+                  backgroundColor: Colors.darkBlue
+                },
+                headerTitleStyle: {
+                  color: Colors.white,
+                  fontWeight: 'bold'
+                },
+                headerLeftStyle: {
+                  color: Colors.white
+                },
+                headerTintColor: Colors.white,
+              }}
+            />
+            <Stack.Screen 
+              name="Settings" 
+              component={SettingsView} 
+              options={{
+                title: "App settings",
+                headerTitleAlign: "center",
+                headerStyle: {
+                  backgroundColor: Colors.darkBlue
+                },
+                headerTitleStyle: {
+                  color: Colors.white,
+                  fontWeight: 'bold'
+                },
+                headerLeftStyle: {
+                  color: Colors.white
+                },
+                headerTintColor: Colors.white,
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    color: Colors.white,
-    backgroundColor: Colors.lightGrey
-  },
-});
