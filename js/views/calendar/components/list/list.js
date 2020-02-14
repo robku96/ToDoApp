@@ -92,7 +92,16 @@ const styles = StyleSheet.create({
 		borderRadius: 8,
 		flex: 1,
 		height: 96,
-		backgroundColor: Colors.WHITE
+		backgroundColor: Colors.WHITE,
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 0,
+			height: 1,
+		},
+		shadowOpacity: 0.20,
+		shadowRadius: 1.41,
+
+		elevation: 2,
 	},
 	isOpened: {
 		height: 300,
