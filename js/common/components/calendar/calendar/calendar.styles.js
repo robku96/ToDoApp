@@ -6,8 +6,8 @@ export default StyleSheet.create({
   visibleMonthAndYear: {
     ...Text.HeadingMain,
     fontWeight: 'bold',
-    color: Colors.white,
-    backgroundColor: Colors.darkBlue,
+    color: Colors.WHITE,
+    backgroundColor: Colors.DARK_BLUE,
     paddingHorizontal: 16,
     textAlign: 'center',
   },

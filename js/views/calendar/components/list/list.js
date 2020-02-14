@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import { map, noop, some } from 'lodash';
 import { Bind } from 'lodash-decorators';
 
+import Colors from '../../../../common/colors/colors';
+
 import Touchable from '../../../../common/components/touchable/touchable';
 
 export default class List extends PureComponent {
@@ -38,15 +40,15 @@ export default class List extends PureComponent {
   render() {
 		
 		const listElement = (
-			<Touchable style={styles.itemContainer} >
+			<Touchable style={styles.itemContainer}>
 				<Text style={{fontSize: 18, fontWeight: 'bold', color: 'black'}}>Title</Text>
-				<Text style={{fontSize: 14, color: 'black'}}>Some descriptin of this task, Some descriptin of this task, Some descriptin of this task, Some descriptin of this task</Text>
+				<Text style={{fontSize: 14, color: 'black'}}>Some descriptin of this task, Some descriptin of this</Text>
 			</Touchable>
 		);
 		const listElementT = (
 			<Touchable style={this.listStyles} onPress={() => this.setState({ isOpened: !this.state.isOpened })}>
 				<Text style={{fontSize: 18, fontWeight: 'bold', color: 'black'}}>Title</Text>
-				<Text style={{fontSize: 14, color: 'black'}}>Some descriptin of this task, Some descriptin of this task, Some descriptin of this task, Some descriptin of this task</Text>
+				<Text style={{fontSize: 14, color: 'black'}}>Some descriptin of this task, Some descriptin of this</Text>
 			</Touchable>
 		);
 
@@ -86,13 +88,11 @@ const styles = StyleSheet.create({
 	itemContainer: {
 		marginHorizontal: 16,
 		marginBottom: 16,
-		padding: 8,
+		padding: 16,
 		borderRadius: 8,
-    borderWidth: 0.8,
-    borderColor: 'black',
 		flex: 1,
 		height: 96,
-		backgroundColor: 'white'
+		backgroundColor: Colors.WHITE
 	},
 	isOpened: {
 		height: 300,
@@ -100,9 +100,7 @@ const styles = StyleSheet.create({
 		marginBottom: 16,
 		padding: 8,
 		borderRadius: 8,
-    borderWidth: 0.8,
-    borderColor: 'black',
 		flex: 1,
-		backgroundColor: 'white'
+		backgroundColor: Colors.WHITE
 	}
 });

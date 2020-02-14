@@ -3,7 +3,8 @@ import {
   StyleSheet, 
   StatusBar,
   Text, 
-  View 
+  View,
+  Image
 } from 'react-native';
 import { Bind } from 'lodash-decorators';
 
@@ -13,30 +14,72 @@ import Colors from '../../common/colors/colors';
 import TextStyles from '../../common/styles/text';
 import { METRIC_SMALL } from '../../common/consts/variables';
 
-export default class SignInView extends Component {
+import strings from '../../common/consts/strings';
+
+import Button from "../../common/components/button/button";
+import Input from "../../common/components/input/input";
+import imageLogo from "../../common/assets/logo.png";
+
+class SignInView extends React.Component {
+  state = {
+    email: "",
+    password: ""
+  };
+
+  handleEmailChange = (email) => {
+    this.setState({ email: email });
+  };
+
+  handlePasswordChange = (password) => {
+    this.setState({ password: password });
+  };
+
+  handleLoginPress = () => {
+    this.props.navigation.navigate('Calendar')
+  };
 
   render() {
     return (
-			<View style={styles.viewContainer}>
-				<StatusBar backgroundColor={Colors.darkBlue} />
-				<Text style={styles.sectionHeader}>Sign in</Text>
-				<Menu navigation={this.props.navigation} />
-			</View>
+      <View style={styles.container}>
+        <Image source={imageLogo} style={styles.logo} />
+        <View style={styles.form}>
+          <Input
+            value={this.state.email}
+            onChangeText={this.handleEmailChange}
+            placeholder={strings.EMAIL_PLACEHOLDER}
+          />
+          <Input
+            value={this.state.password}
+            onChangeText={this.handlePasswordChange}
+            placeholder={strings.PASSWORD_PLACEHOLDER}
+          />
+          <Button mode="link" label={strings.CREATE_AN_ACCOUNT} onPress={this.handleLoginPress} />
+          <Button label={strings.LOGIN} onPress={this.handleLoginPress} />
+        </View>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  viewContainer: {
+  container: {
     flex: 1,
-    color: Colors.white,
-    backgroundColor: Colors.lightGrey
+    backgroundColor: Colors.WHITE,
+    alignItems: "center",
+    justifyContent: "space-between"
   },
-  sectionHeader: {
-    ...TextStyles.Regular1,
-    fontWeight: 'bold',
-    justifyContent: 'flex-start',
-    paddingHorizontal: METRIC_SMALL,
-    paddingVertical: METRIC_SMALL
+  logo: {
+    flex: 1,
+    width: "40%",
+    resizeMode: "contain",
+    alignSelf: "center",
+    marginTop: 8
+  },
+  form: {
+    flex: 1,
+    justifyContent: "center",
+    width: "80%"
   }
 });
+
+export default SignInView;

@@ -9,7 +9,7 @@ export default StyleSheet.create({
     paddingVertical: 10,
   },
   containerActive: {
-    borderBottomColor: Colors.white,
+    borderBottomColor: Colors.WHITE,
   },
   day: {
     fontSize: 12,
@@ -18,10 +18,10 @@ export default StyleSheet.create({
     fontSize: 18,
   },
   text: {
-    color: Colors.white,
+    color: Colors.WHITE,
     textAlign: 'center',
   },
   textActive: {
-    color: Colors.white,
+    color: Colors.WHITE,
   },
 });

@@ -1,8 +1,12 @@
 export default {
-  darkBlue: '#3A7FFC',
-  lightGrey: '#F8F9FD', 
-  darkGrey: '#989898',
-  bottomBarGrey: '#ECEFF4',
-  white: '#ffffff',
-  black: '#000000'
+  DARK_BLUE: '#3A7FFC',
+  LIGHT_GREY: '#F8F9FD', 
+  DARK_GREY: '#989898',
+  BLACK: "#000",
+  WHITE: "#FFF",
+  DODGER_BLUE: "#428AF8",
+  SILVER: "#BEBEBE",
+  TORCH_RED: "#F8262F",
+  MISCHKA: "#E5E4E6",
+  MENU_GREY: '#ECEFF4',
 }

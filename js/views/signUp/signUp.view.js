@@ -18,7 +18,7 @@ export default class SignUpView extends Component {
   render() {
     return (
 			<View style={styles.viewContainer}>
-				<StatusBar backgroundColor={Colors.darkBlue} />
+				<StatusBar backgroundColor={Colors.DARK_BLUE} />
 				<Text style={styles.sectionHeader}>Sign up</Text>
 				<Menu navigation={this.props.navigation} />
 			</View>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   viewContainer: {
     flex: 1,
     color: Colors.white,
-    backgroundColor: Colors.lightGrey
+    backgroundColor: Colors.LIGHT_GREY
   },
   sectionHeader: {
     ...TextStyles.Regular1,

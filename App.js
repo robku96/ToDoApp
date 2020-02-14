@@ -30,12 +30,12 @@ export default class App extends Component {
   render() {
     const customHeaderOptions = {
       headerTitleAlign: "center",
-      headerTintColor: Colors.white,
+      headerTintColor: Colors.WHITE,
       headerStyle: {
-        backgroundColor: Colors.darkBlue
+        backgroundColor: Colors.DARK_BLUE
       },
       headerTitleStyle: {
-        color: Colors.white,
+        color: Colors.WHITE,
         fontWeight: 'bold'
       },
     };
@@ -52,7 +52,7 @@ export default class App extends Component {
     return (
       <View style={{flex: 1}}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Calendar">
+          <Stack.Navigator initialRouteName="SignIn">
             <Stack.Screen 
               name="SignIn" 
               component={SignInView} 
@@ -70,13 +70,13 @@ export default class App extends Component {
                 title: "All your tasks",
                 headerTitleAlign: "center",
                 headerStyle: {
-                  backgroundColor: Colors.darkBlue
+                  backgroundColor: Colors.DARK_BLUE
                 },
                 headerTitleStyle: {
-                  color: Colors.white,
+                  color: Colors.WHITE,
                   fontWeight: 'bold'
                 },
-                headerTintColor: Colors.white,
+                headerTintColor: Colors.WHITE,
                 ...myTransition
               }}
             />
@@ -95,16 +95,16 @@ export default class App extends Component {
                 title: "Add new task",
                 headerTitleAlign: "center",
                 headerStyle: {
-                  backgroundColor: Colors.darkBlue
+                  backgroundColor: Colors.DARK_BLUE
                 },
                 headerTitleStyle: {
-                  color: Colors.white,
+                  color: Colors.WHITE,
                   fontWeight: 'bold'
                 },
                 headerLeftStyle: {
-                  color: Colors.white
+                  color: Colors.WHITE
                 },
-                headerTintColor: Colors.white,
+                headerTintColor: Colors.WHITE,
               }}
             />
             <Stack.Screen 
@@ -114,16 +114,16 @@ export default class App extends Component {
                 title: "App settings",
                 headerTitleAlign: "center",
                 headerStyle: {
-                  backgroundColor: Colors.darkBlue
+                  backgroundColor: Colors.DARK_BLUE
                 },
                 headerTitleStyle: {
-                  color: Colors.white,
+                  color: Colors.WHITE,
                   fontWeight: 'bold'
                 },
                 headerLeftStyle: {
-                  color: Colors.white
+                  color: Colors.WHITE
                 },
-                headerTintColor: Colors.white,
+                headerTintColor: Colors.WHITE,
               }}
             />
           </Stack.Navigator>

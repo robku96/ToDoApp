@@ -29,7 +29,7 @@ class CalendarView extends Component {
   render() {
     return (
 			<View style={styles.viewContainer}>
-				<StatusBar backgroundColor={Colors.darkBlue} />
+				<StatusBar backgroundColor={Colors.DARK_BLUE} />
 				<Calendar onSelectDate={this.onSelectDate} />
 				<Text style={styles.sectionHeader}>Today's tasks</Text>
         <List />
@@ -42,8 +42,8 @@ class CalendarView extends Component {
 const styles = StyleSheet.create({
   viewContainer: {
     flex: 1,
-    color: Colors.white,
-    backgroundColor: Colors.lightGrey
+    color: Colors.WHITE,
+    backgroundColor: Colors.LIGHT_GREY
   },
   sectionHeader: {
     ...TextStyles.Regular1,

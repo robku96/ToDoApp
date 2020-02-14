@@ -18,7 +18,7 @@ export default class AddTaskView extends Component {
   render() {
     return (
 			<View style={styles.viewContainer}>
-				<StatusBar backgroundColor={Colors.darkBlue} />
+				<StatusBar backgroundColor={Colors.DARK_BLUE} />
         <Menu navigation={this.props.navigation} />
 			</View>
     );
@@ -28,8 +28,8 @@ export default class AddTaskView extends Component {
 const styles = StyleSheet.create({
   viewContainer: {
     flex: 1,
-    color: Colors.white,
-    backgroundColor: Colors.lightGrey
+    color: Colors.WHITE,
+    backgroundColor: Colors.LIGHT_GREY
   },
   sectionHeader: {
     ...TextStyles.Regular1,

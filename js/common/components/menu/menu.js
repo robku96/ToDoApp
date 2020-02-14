@@ -24,7 +24,7 @@ export default class Menu extends Component {
         <AntDesign 
           name="checkcircleo" 
           size={METRIC_BASE} 
-          color={Colors.darkGrey} 
+          color={Colors.DARK_GREY} 
         />
       </Touchable>
     )
@@ -39,7 +39,7 @@ export default class Menu extends Component {
         <AntDesign 
           name="calendar" 
           size={METRIC_BASE} 
-          color={Colors.darkGrey} 
+          color={Colors.DARK_GREY} 
         />
       </Touchable>
     )
@@ -54,7 +54,7 @@ export default class Menu extends Component {
         <AntDesign 
           name="pluscircle" 
           size={METRIC_MED - METRIC_X_SMALL} 
-          color={Colors.darkBlue} 
+          color={Colors.DARK_BLUE} 
         />
       </Touchable>
     )
@@ -69,7 +69,7 @@ export default class Menu extends Component {
         <AntDesign 
           name="setting" 
           size={METRIC_BASE} 
-          color={Colors.darkGrey} 
+          color={Colors.DARK_GREY} 
         />
       </Touchable>
     )
@@ -84,7 +84,7 @@ export default class Menu extends Component {
         <AntDesign 
           name="logout" 
           size={METRIC_BASE} 
-          color={Colors.darkGrey} 
+          color={Colors.DARK_GREY} 
         />
       </Touchable>
     )
@@ -93,7 +93,7 @@ export default class Menu extends Component {
   render() {
     return (
       <BottomBar
-        shapeColor={Colors.bottomBarGrey}
+        shapeColor={Colors.MENU_GREY}
         shapeStyle={{ bottom: 90 }}
         firstIconComponent={this.tasksButton()}
         secondIconComponent={this.calendarButton()}
